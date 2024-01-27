@@ -1,35 +1,35 @@
 @import '../abstracts/';
 
 .header {
-
-  height: 100vh;
-  background: radial-gradient($color-dark-white, $color-white);
-  position: relative;
   width: 100%;
+  height: 100vh;
+  background: $color-dark-white;
   display: grid;
   grid-template-areas:
     'nav'
     'hero';
+    grid-template-rows: 20vh 80vh;
 
   &__nav {
     grid-area: nav;
     color: $color-dark-pink;
-    z-index: 70;
+    position: fixed;
+    width: 100%;
     @include respond(max-tablet) {
       background-color: $color-white;
       border-bottom: 1px solid $color-dark-grey;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     }
 
+    @include respond(max-tablet){
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+
     display: grid;
     grid-template-columns: 20% 80%;
-
-    // @include respond(tablet) {
-    //   grid-template-columns: 20% 50% 20%;
-    // }
-
     grid-template-areas: 'logo menuItems';
-
 
     @include respond(tablet) {
       grid-template-areas:
@@ -37,19 +37,12 @@
         grid-template-columns: 20% 50% 30%;
     }
 
-    width: 100%;
-    height: 10vh;
-    position: fixed;
-    border-radius: 2px;
-
     @include respond(tablet) {
       &.scrolled {
         background-color: $color-white;
         border-bottom: 1px solid $color-dark-grey;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-        // .menu__sublist {
-        //   display: none;
-        // }
+        z-index: 120;
       }
     }
 
@@ -86,19 +79,11 @@
   }
 
   &__other {
-    grid-area: other;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    top: 70vh;
-    &>* {
-      margin: 10px;
-    }
+   grid-area: other;
+   display: none;
     @include respond(tablet){
-      position:initial;
+      display: flex;
+     position: initial;
       flex-direction: row;
       &>* {
         margin: 10px;
@@ -147,6 +132,8 @@
 
     &__hero {
     grid-area: hero;
+
+    height: 90vh;
     display: flex;
     padding: 40px;
   }
@@ -174,6 +161,7 @@
         overflow-y: initial;
 
       }
+     
 }
 
 .menu {
@@ -226,6 +214,9 @@
               background-color: $color-very-light-pink;
             }
         } 
+        &.hidden {
+          visibility: hidden;
+        }
       max-width: 300px;
       z-index: 100;
 
@@ -279,7 +270,7 @@
 
     @include respond(max-tablet) {
       .nav__menu.nav__block {
-      
+        height: auto;
         z-index: 200;
         background-color: $color-white;
         // padding-top: 10vh;
@@ -318,7 +309,7 @@
     }
   
     .hamburger {
-      z-index: 100;
+      z-index: 120;
       margin-right: 20px;
       @include respond(tablet) {
         margin-right: 0;

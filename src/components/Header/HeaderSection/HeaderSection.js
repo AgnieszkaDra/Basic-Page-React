@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Logo from '../Logo';
 import SelectLanguage from '../SelectLanguage';
 import Navigation from '../Navigation/Navigation';
+import { useScroll } from '../../../hooks/useScroll';
 
 export const HeaderSection = (props) => {
   const {
@@ -16,8 +17,8 @@ export const HeaderSection = (props) => {
   } = props
 
   const [scrolled, setScrolled] = useState(false);
-
-
+  
+  const { isScrolled } = useScroll()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +38,7 @@ export const HeaderSection = (props) => {
 
   return (
     <>
-      <div className={`${scrolled ? `header__nav scrolled ` : 'header__nav'}`}>
+      <div className={`${scrolled ? `header__nav scrolled ` : 'header__nav'} ${isScrolled ? `${' hidden'}` : '' }`}>
         <Logo className={'header__logo'} logo={logo}></Logo>
         <div className={"header__navigation"}>
           <Navigation content={menu}></Navigation>

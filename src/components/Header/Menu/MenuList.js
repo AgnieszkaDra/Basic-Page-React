@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { FaChevronDown } from 'react-icons/fa';
 import { HeaderDataTeamContext } from '../../context';
-import { Link } from 'react-router-dom';
-
+import { useScroll } from '../../../hooks/useScroll';
 
 export const MenuList = () => {
 
@@ -10,6 +9,8 @@ export const MenuList = () => {
   const [hoveredListItem, setHoveredListItem] = useState(null);
   const [hoveredSubListItem, setHoveredSubListItem] = useState(null);
   const [showSubList, setShowSubList] = useState(null);
+  const { isScrolled } = useScroll()
+
 
   const handleMouseEnterListItem = (key) => {
     setHoveredListItem(key);
@@ -42,7 +43,7 @@ export const MenuList = () => {
               {item.className === 'menu__item--parent' ?<div className='menu__item--parent--title'>{item.name}<FaChevronDown /></div>  : <div className='menu__item--parent--title'> <a href={`#${item.idSection}`}>{item.name}</a></div>}
               {item.parentSubList
                 ?
-                <ul className={`${'menu__sublist'} ${hoveredListItem === item.id ? `${'menu__sublist--block'}` : `${'menu__sublist--hide'}`} `}>
+                <ul className={`${'menu__sublist'} ${hoveredListItem === item.id ? `${'menu__sublist--block'}` : `${'menu__sublist--hide'}`}${isScrolled ? `${' hidden'}` : '' } `}  >
                   {elements
                     .filter((el) => el.childFor === item.name)
                     .map((el) => (

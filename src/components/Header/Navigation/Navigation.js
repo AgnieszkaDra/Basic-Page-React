@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import { NavbarContext } from '../../context';
 import ChocolateHamburger from '../ChocolateHamburger';
-
 import Menu from '../Menu/Menu';
 
 export const Navigation = () => {
-
-
   const { Provider: NavbarProvider } = NavbarContext;
   const [navbarOpen, setNavbarOpen] = useState(false);
 
