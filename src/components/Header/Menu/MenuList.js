@@ -5,7 +5,7 @@ import { useScroll } from '../../../hooks/useScroll';
 
 export const MenuList = ({ isNavbarOpen }) => {
   const { elements } = useContext(HeaderDataTeamContext);
-  
+  const [menu, setMenu] = useState(elements);
   const root = elements[0];
   const menuIds = root.childIds;
   const MenuTree = ({ id, menuElementById }) => {
