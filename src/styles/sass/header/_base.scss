@@ -8,62 +8,52 @@
   grid-template-areas:
     'nav'
     'hero';
-    grid-template-rows: 20vh 80vh;
+  grid-template-rows: 20vh 80vh;
 
   &__nav {
     grid-area: nav;
     color: $color-dark-pink;
     position: fixed;
     width: 100%;
+    z-index: 120;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: 'logo menuItems';
+
     @include respond(max-tablet) {
       background-color: $color-white;
       border-bottom: 1px solid $color-dark-grey;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    @include respond(max-tablet){
       &.hidden {
         visibility: hidden;
       }
     }
 
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-areas: 'logo menuItems';
-
     @include respond(tablet) {
       grid-template-areas:
         'logo  menuItems other';
-        grid-template-columns: 20% 50% 30%;
-    }
-
-    @include respond(tablet) {
-      &.scrolled {
+      grid-template-columns: 20% 50% 30%;
+       &.scrolled {
         background-color: $color-white;
         border-bottom: 1px solid $color-dark-grey;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-        z-index: 120;
       }
     }
-
   }
-
   &__logo {
-    grid-area: logo;
-    width: 100%;
-    z-index: 100;
-    margin-left: 10px;
-    @include flexAbsoluteCenter();
+      grid-area: logo;
+      width: 100%;
+      z-index: 100;
+      margin-left: 10px;
+      @include flexAbsoluteCenter();
 
-  img {
-    box-shadow: 4px 4px 8px rgba(219,112,147, 0.3);
+      img {
+        box-shadow: 4px 4px 8px rgba(219,112,147, 0.3);
+      }
+      @include respond(tablet) {
+        margin-left: 0;
+      }
   }
-    @include respond(tablet) {
-      margin-left: 0;
-    }
-
-  }
- 
   &__navigation {
     grid-area: menuItems;
     height: 100%;
@@ -74,131 +64,157 @@
 
     @include respond(tablet) {
       justify-content: initial;
-      
     }
   }
-
   &__other {
    grid-area: other;
    display: none;
     @include respond(tablet){
       display: flex;
-     position: initial;
+      position: initial;
       flex-direction: row;
       &>* {
         margin: 10px;
       }
     }
- }
-    .select.custom__select {
-      position: relative;
-      display: inline-block;
-      @include flexAbsoluteCenter();
-      margin-right: 10px;
-      width: 50px;
-      @include respond(tablet) {
-        width: 13%;
-      }
+  }
+
+  .select.custom__select {
+    position: relative;
+    display: inline-block;
+    @include flexAbsoluteCenter();
+    margin-right: 10px;
+    width: 50px;
+    @include respond(tablet) {
+      width: 13%;
     }
+  }
     
-    .select.custom__select select {
-      appearance: none; 
-      -webkit-appearance: none; 
-      -moz-appearance: none; 
-      width: 100%;
-      padding: 8px;
-      border: none;
-      cursor: pointer;
-    }
+  .select.custom__select select {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 100%;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+  }
 
-    .select.custom__select select:focus {
-      appearance: none; 
-      -webkit-appearance: none; 
-      -moz-appearance: none; 
-      width: 100%;
-      padding: 8px;
-      border: 1px solid $color-dark-pink;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+  .select.custom__select select:focus {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 100%;
+    padding: 8px;
+    border: 1px solid $color-dark-pink;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-    .custom-chevron {
-      position: absolute;
-      top: 50%;
-      right: 0px;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
+  .custom-chevron {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 
-    &__hero {
+  &__hero {
     grid-area: hero;
-
     height: 90vh;
     display: flex;
     padding: 40px;
   }
-
 }
 
 .nav {
-      width: 130%;
-      // height: 100%;
-      position: absolute;
-      top: 10vh;
-      left: -30%;
-      height: 60vh;
-      overflow-y: auto;
-      z-index: 100;
-  
-      @include respond(tablet) {
-        width: 100%;
-        left: 0;
-        top: 0;
-        height: 10vh;
-        min-height: 0;
-        width: 100%;
-        z-index: 0;
-        overflow-y: initial;
-
-      }
-     
+  width: calc(120% + 30px);
+  min-height: 90vh;
+  position: absolute;
+  top: 10vh;
+  left: calc(-20% - 30px);
+  @include respond(tablet) {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    left: 0;
+    top: 0;
+    overflow-y: initial;
+  }
 }
 
 .menu {
-    width: 100%;
-    height: 100%;
-  
-    &__item {
+  width: 100%;
+  height: 100%;
+    &__listItem{
       width: 100%;
       position: relative;
       padding: 5px;
-      display: grid;
-      grid-template-areas: 
-        'title'
-        'sublist';
-        @include respond(tablet) {
+      &:hover {
+        color: $color-light-pink;
+      }
+      // display: grid;
+      // grid-template-areas: 
+      //   'title'
+      //   'sublist';
+      //   @include respond(tablet) {
+      // display: flex;
+     
+      // align-items: center;
+      // width: 20%;
+      //   }
+      //   &--parent{
+      //     &--title {
+      //       @include flexAbsoluteCenter();
+      //       grid-area: title;
+      //       font-size: 1rem;
+      //       font-weight: bold;
+      //       @include respond(tablet) {
+      //         height: 100%;
+      //       }
+      //     }
+      //     &>.menu__sub-sublist--block {
+      //      display: grid;
+      //     }
+      //   }
+    }
+    &__sublist {
+      padding: 10px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      width: 20%;
-        }
-        
-        &:hover {
-          color: $color-light-pink;
-        }
-        &--parent{
-          &--title {
-            @include flexAbsoluteCenter();
-            grid-area: title;
-            font-size: 1rem;
-            font-weight: bold;
-            @include respond(tablet) {
-              height: 100%;
+      flex-direction: column;
+        &__item {
+          font-size: 1rem;
+          font-weight: bold;
+          padding: 10px;
+          color: $color-dark-pink;
+          &:hover {
+            background-color: $color-very-light-pink;
+          }
+          &--text {
+            color: $color-dark-pink;
+            margin-top: 5px;
+            font-size: 0.8rem;
+          }
+        } 
+        @include respond(tablet) {
+          min-height: 15vh;
+       
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          position: absolute;
+          top: 10vh;
+          left: calc(30% - 150px);
+          background-color: $color-white;
+          border-radius: 5px;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+          -5px -5px 10px rgba(0, 0, 0, 0.3);
+           &__item {
+              &:hover {
+                color: $color-light-pink;
+              }
             }
-          }
-          &>.menu__sub-sublist--block {
-           display: grid;
-          }
         }
     }
 
@@ -247,46 +263,7 @@
     //   }
 
     // }
-    &__sublist {
-      z-index: 100;
-      padding: 10px;
-        display: flex;
-        flex-direction: column;
-        &__item {
-           font-size: 1rem;
-           font-weight: bold;
-            padding: 10px;
-            color: $color-dark-pink;
-            &:hover {
-              background-color: $color-very-light-pink;
-            }
-        } 
-      @include respond(tablet) {
-            min-height: 15vh;
-            min-width: 550px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            position: absolute;
-            top: 10vh;
-            left: calc(30% - 150px);
-            background-color: $color-white;
-            border-radius: 5px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-            -5px -5px 10px rgba(0, 0, 0, 0.3);
-            .menu__item {
-                    width: 100%;
-          
-                    &:hover {
-                      color: $color-light-pink;
-                    }
-                  }
-      }
-      .menu__item {
-        display: flex;
-        flex-direction: column;
-      }
-    }
+  
 
     &__sub-sublist {
       padding: 5px;
@@ -313,13 +290,11 @@
     @include respond(max-tablet) {
       .nav__menu.nav__block {
         height: auto;
-        z-index: 200;
         background-color: $color-white;
         // padding-top: 10vh;
         position: absolute;
         top: 0;
         left: 0%;
-        z-index: 2;
         display: block;
         display: flex;
         justify-content: center;

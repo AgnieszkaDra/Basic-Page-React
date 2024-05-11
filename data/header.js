@@ -50,32 +50,27 @@ export const header = {
     2: {
       id: 2,
       name: 'For small business',
-      text: 'From business card websites to landing pages',
-      childIds: []
+      childIds: [16]
     },
     3: {
       id: 3,
       name: 'online store',
-      text: 'A fast and easy way to grow sales',
-      childIds: []
+      childIds: [17]
     },
     4: {
       id: 4,
       name: 'Blogging',
-      text: 'Everything you need to start a blog',
-      childIds: []
+      childIds: [19]
     },
     5: {
       id: 5,
       name: 'Enterprise solutions',
-      text: 'For those who want to sell websites with Nova',
-      childIds: []
+      childIds: [20]
     },
     6: {
       id: 6,
       name: 'Hire a professional',
-      text: 'Order a website from Nova studio',
-      childIds: []
+      childIds: [21]
     },
     7: {
       id: 7,
@@ -100,38 +95,86 @@ export const header = {
     11: {
       id: 11,
       name: 'Nova Blog',
-      text: 'Tips, inspirations, useful articles and more',
-      childIds: []
+      childIds: [22]
     },
     12: {
       id: 12,
       name: 'Knowledge base',
-      text: 'Our answers to your most common questions',
-      childIds: []
+      childIds: [23]
     },
     13: {
       id: 13,
       name: 'Guides',
-      text: 'Tutorials for different types of websites',
-      childIds: []
+      childIds: [24]
     },
     14: {
       id: 14,
       name: 'Product updates',
-      text: 'Information on Nova`s newest features',
-      childIds: []
+      childIds: [25]
     },
     15: {
       id: 15,
       name: 'Success stories',
-      text: 'Inspirational stories from our clients',
+      childIds: [26]
+    },
+    16: {
+      id: 16,
+      name: 'From business card websites to landing pages',
+      childIds: []
+    },
+    17: {
+      id: 17,
+      name: 'A fast and easy way to grow sales',
+      childIds: []
+    },
+    18: {
+      id: 18,
+      name: 'Everything you need to start a blog',
+      childIds: []
+    },
+    19: {
+      id: 19,
+      name: 'A fast and easy way to grow sales',
+      childIds: []
+    },
+    20: {
+      id: 20,
+      name: 'For those who want to sell websites with Nova',
+      childIds: []
+    },
+    21: {
+      id: 21,
+      name: 'Order a website from Nova studio',
+      childIds: []
+    },
+    22: {
+      id: 22,
+      name: 'Tips, inspirations, useful articles and more',
+      childIds: []
+    },
+    23: {
+      id: 23,
+      name: 'Our answers to your most common questions',
+      childIds: []
+    },
+    24: {
+      id: 24,
+      name: 'Tutorials for different types of websites',
+      childIds: []
+    },
+    25: {
+      id: 25,
+      name: 'Information on Nova`s newest features',
+      childIds: []
+    },
+    26: {
+      id: 26,
+      name: 'Inspirational stories from our clients',
       childIds: []
     },
   }
-
-  // https://weblium.com/create-a-travel-website
 }
-
 
 export default header
 
+// https://weblium.com/create-a-travel-website
