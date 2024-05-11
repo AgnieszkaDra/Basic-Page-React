@@ -50,26 +50,31 @@ export const header = {
     2: {
       id: 2,
       name: 'For small business',
+      text: 'From business card websites to landing pages',
       childIds: []
     },
     3: {
       id: 3,
       name: 'online store',
+      text: 'A fast and easy way to grow sales',
       childIds: []
     },
     4: {
       id: 4,
       name: 'Blogging',
+      text: 'Everything you need to start a blog',
       childIds: []
     },
     5: {
       id: 5,
       name: 'Enterprise solutions',
+      text: 'For those who want to sell websites with Nova',
       childIds: []
     },
     6: {
       id: 6,
       name: 'Hire a professional',
+      text: 'Order a website from Nova studio',
       childIds: []
     },
     7: {
@@ -95,26 +100,31 @@ export const header = {
     11: {
       id: 11,
       name: 'Nova Blog',
+      text: 'Tips, inspirations, useful articles and more',
       childIds: []
     },
     12: {
       id: 12,
       name: 'Knowledge base',
+      text: 'Our answers to your most common questions',
       childIds: []
     },
     13: {
       id: 13,
       name: 'Guides',
+      text: 'Tutorials for different types of websites',
       childIds: []
     },
     14: {
       id: 14,
       name: 'Product updates',
+      text: 'Information on Nova`s newest features',
       childIds: []
     },
     15: {
       id: 15,
       name: 'Success stories',
+      text: 'Inspirational stories from our clients',
       childIds: []
     },
   }

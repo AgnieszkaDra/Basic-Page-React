@@ -340,10 +340,10 @@ a {
 }
 
 .menu__sublist {
-  grid-area: sublist;
-  padding: 10px;
-  max-width: 300px;
   z-index: 100;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu__sublist__item {
@@ -355,10 +355,6 @@ a {
 
 .menu__sublist__item:hover {
   background-color: rgb(255, 228, 225);
-}
-
-.menu__sublist.hidden {
-  visibility: hidden;
 }
 
 @media only screen and (min-width: 900px) {
@@ -382,6 +378,11 @@ a {
     color: rgb(219, 112, 147);
   }
 }
+.menu__sublist .menu__item {
+  display: flex;
+  flex-direction: column;
+}
+
 .menu__sub-sublist {
   padding: 5px;
   color: rgb(0, 0, 0);
