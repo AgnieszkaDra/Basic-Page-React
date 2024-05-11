@@ -16,12 +16,12 @@ export const MenuTree = ({ isNavbarOpen }) => {
         const childIds = menuElement.childIds;
         
         return (
-            <div 
+            <li
                 className='menu__sublist__item--text'
                 style={{height: '100%'}}
             >
-            <div>{menuElement.name}</div>
-            </div>
+                {menuElement.name}
+            </li>
         );
     }
 
@@ -71,6 +71,7 @@ export const MenuTree = ({ isNavbarOpen }) => {
                 <ul 
                     className='menu__text' 
                     style={{ zIndex: 200 }}
+                     onMouseLeave={() => setShowMenuTextItem(false)}
                 >
                     {childIds.map(childId => (
                     <MenuItemText
@@ -85,7 +86,7 @@ export const MenuTree = ({ isNavbarOpen }) => {
         </li>
         );
     }
-    
+
   return (
     <ul className={`nav__menu menu ${isNavbarOpen ? 'nav__hide' : 'nav__block'}`}>
       {menuIds.map(id => (

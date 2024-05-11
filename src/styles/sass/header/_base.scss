@@ -150,6 +150,7 @@
       width: 100%;
       position: relative;
       padding: 5px;
+      @include flexAbsoluteCenter();
       &:hover {
         color: $color-light-pink;
       }
@@ -187,6 +188,7 @@
           font-size: 1rem;
           font-weight: bold;
           padding: 10px;
+          height: auto;
           color: $color-dark-pink;
           &:hover {
             background-color: $color-very-light-pink;
@@ -199,7 +201,6 @@
         } 
         @include respond(tablet) {
           min-height: 15vh;
-       
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(3, 1fr);
