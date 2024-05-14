@@ -27,22 +27,20 @@ export const MenuTree = ({ isNavbarOpen }) => {
     }
 
     const MenuList = ({ id, menuElementById }) => {
-        console.log(id, menuElementById)
-            const menuElement = menuElementById[id];
-            const childIds = menuElement.childIds;
-            const arrowDown = menuElement?.arrowDown
-            const handleToggle = useCallback((itemId) => {
-                setShowSublist(prevState => prevState === itemId ? null : itemId);
-            }, []);
-            return (
+        const menuElement = menuElementById[id];
+        const childIds = menuElement.childIds;
+        const arrowDown = menuElement?.arrowDown
+
+        const handleSublist = useCallback(
+            id => {
+                setShowSublist(prevState => prevState === id ? null : id);
+            },[]
+        );
+
+        return (
             <li
                 className="menu__listItem menu"
-                // onClick={(event) => {
-                //     setShowSublist(true);
-                //     event.stopPropagation();
-                //   }}
-                onClick={() => handleToggle(id)} 
-                // {...{ [eventToUse]: isMobile ? () => setShowSublist(true) : setShowSublist(true) }}
+                onClick={() => handleSublist(id)} 
             >
                 <div>{menuElement.name}</div>
                 {arrowDown && (
@@ -52,7 +50,7 @@ export const MenuTree = ({ isNavbarOpen }) => {
                 <ul 
                     className='menu__sublist' 
                     style={{ zIndex: 200 }}
-                    onMouseLeave={() => setShowSublist(false)}
+                    onMouseLeave={() => handleSublist(id)}
                 >
                     {childIds.map(childId => (
                     <MenuSubList
@@ -65,27 +63,28 @@ export const MenuTree = ({ isNavbarOpen }) => {
                 </ul>
                 )}
             </li>
-            );
+        );
         }
 
     const MenuSubList = ({ id, menuElementById }) => {
         const menuElement = menuElementById[id];
         const childIds = menuElement.childIds;
-        const handleToggle2 = useCallback((itemId) => {
+        const handleText = useCallback((itemId, event) => {
+      console.log(event)
+         event.stopPropagation()
             setShowMenuTextItem(prevState => prevState === itemId ? null : itemId);
-        }, []);
+        }, [showMenuTextItem]);
         return (
             <li
                 className="menu__sublist__item"
-                onClick={() => handleToggle2(id)} 
-                // {...{ [eventToUse]: isMobile ? () => setShowMenuTextItem(true) : setShowMenuTextItem(true) }}
+                onClick={(event) => handleText(id, event)} 
             >
             <div>{menuElement.name}</div>
             {showMenuTextItem === id && childIds.length > 0 && (
                 <ul 
                     className='menu__text' 
                     style={{ zIndex: 200 }}
-                    onMouseLeave={() => setShowMenuTextItem(false)}
+                    onMouseLeave={(event) => handleText(id, event)}
                 >
                     {childIds.map(childId => (
                     <MenuItemText

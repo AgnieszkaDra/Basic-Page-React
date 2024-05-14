@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuList from './MenuList';
+import MenuTree from './MenuList';
 import { useScroll } from '../../../hooks/useScroll';
 
 export const Menu = (props) => {
@@ -14,7 +14,7 @@ export const Menu = (props) => {
 
    
    
-      <MenuList isNavbarOpen={isNavbarOpen} />
+      <MenuTree isNavbarOpen={isNavbarOpen} />
   
 
 </nav>
