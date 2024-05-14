@@ -42,9 +42,9 @@ export const HeaderSection = (props) => {
 
   return (
     <>
-      <div className={`${scrolled ? `header__nav scrolled ` : 'header__nav'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`}>
+      <div className={`${scrolled ? `header__top scrolled ` : 'header__top'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`}>
         <Logo className={'header__logo'} logo={logo}></Logo>
-        <div className={"header__navigation"}>
+        <div className={"header__menu"}>
           <Navigation content={menu}></Navigation>
         </div>
         <div className={"header__other"}>

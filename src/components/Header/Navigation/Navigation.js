@@ -17,7 +17,7 @@ export const Navigation = () => {
         <button onClick={handleToggle} className={'hamburger'}>
           <ChocolateHamburger isNavbarOpen={navbarOpen} openFunc={setNavbarOpen} span={9} />
         </button>
-        <Menu className={'nav'} isNavbarOpen={navbarOpen} navbarOpenFunc={setNavbarOpen} ></Menu> 
+        <Menu isNavbarOpen={navbarOpen} navbarOpenFunc={setNavbarOpen} ></Menu> 
       </NavbarProvider>
     </>
   )

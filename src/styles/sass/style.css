@@ -139,34 +139,32 @@ a {
   grid-template-rows: 10vh 90vh;
 }
 
-.header__nav {
+.header__top {
   grid-area: nav;
   color: rgb(228, 0, 124);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
   position: fixed;
   width: 100%;
   height: 10vh;
   z-index: 120;
-  display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-areas: "logo menuItems";
+  display: flex;
 }
 
 @media only screen and (max-width: 899px) {
-  .header__nav {
+  .header__top {
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(70, 70, 70);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   }
-  .header__nav.hidden {
+  .header__top.hidden {
     visibility: hidden;
   }
 }
 @media only screen and (min-width: 900px) {
-  .header__nav {
-    grid-template-areas: "logo  menuItems other";
-    grid-template-columns: 20% 50% 30%;
-  }
-  .header__nav.scrolled {
+  .header__top.scrolled {
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(70, 70, 70);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
@@ -174,7 +172,6 @@ a {
 }
 .header__logo {
   grid-area: logo;
-  width: 100%;
   z-index: 100;
   margin-left: 10px;
   display: flex;
@@ -191,9 +188,10 @@ a {
     margin-left: 0;
   }
 }
-.header__navigation {
+.header__menu {
   grid-area: menuItems;
   height: 100%;
+  width: calc(100% - 370px) !important;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -201,15 +199,10 @@ a {
 }
 
 @media only screen and (min-width: 900px) {
-  .header__navigation {
+  .header__menu {
     justify-content: initial;
   }
 }
-.header__other {
-  grid-area: other;
-  display: none;
-}
-
 @media only screen and (min-width: 900px) {
   .header__other {
     display: flex;
@@ -274,7 +267,6 @@ a {
 }
 
 .nav {
-  width: calc(120% + 30px);
   padding: 1rem 2rem;
   position: absolute;
   top: calc(10vh + 4px);
@@ -284,7 +276,7 @@ a {
 
 @media only screen and (min-width: 900px) {
   .nav {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     min-height: 0;
     left: 0;
@@ -298,6 +290,7 @@ a {
   position: relative;
   margin-left: 20px;
   margin-right: auto;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -368,7 +361,16 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: calc(120% + 30px);
+    max-width: 100vw;
+    max-height: 100vh;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    transition: opacity 0.2s ease;
     gap: 1rem;
     display: flex;
     justify-content: center;
@@ -409,8 +411,11 @@ a {
   }
   .nav__menu {
     display: block;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
+    text-wrap: nowrap;
   }
   .nav .menu__item:not(:nth-child(3)) {
     margin-right: 10px;

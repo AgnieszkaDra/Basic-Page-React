@@ -1,7 +1,6 @@
 import React, { useContext, useState, useCallback } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import { HeaderDataTeamContext } from '../../context';
-import { useScroll } from '../../../hooks/useScroll';
 
 export const MenuTree = ({ isNavbarOpen }) => {
     const { elements } = useContext(HeaderDataTeamContext);
@@ -38,7 +37,8 @@ export const MenuTree = ({ isNavbarOpen }) => {
         );
 
         return (
-            <li
+         
+                <li
                 className="menu__listItem menu"
                 onClick={() => handleSublist(id)} 
             >
@@ -62,7 +62,8 @@ export const MenuTree = ({ isNavbarOpen }) => {
                     ))}
                 </ul>
                 )}
-            </li>
+                </li> 
+           
         );
         }
 
@@ -70,8 +71,7 @@ export const MenuTree = ({ isNavbarOpen }) => {
         const menuElement = menuElementById[id];
         const childIds = menuElement.childIds;
         const handleText = useCallback((itemId, event) => {
-      console.log(event)
-         event.stopPropagation()
+            event.stopPropagation()
             setShowMenuTextItem(prevState => prevState === itemId ? null : itemId);
         }, [showMenuTextItem]);
         return (

@@ -10,14 +10,16 @@ export const Menu = (props) => {
   const { isScrolled } = useScroll()
   return (
     <>
-     <nav className="nav">
+    
 
+   <nav className='nav'>
+    <MenuTree isNavbarOpen={isNavbarOpen} />
+   </nav>
    
-   
-      <MenuTree isNavbarOpen={isNavbarOpen} />
+      
   
 
-</nav>
+
     </>
   )
 }
