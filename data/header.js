@@ -1,6 +1,5 @@
 import logo from '../src/images/logo.png';
-import screen from '../src/images/hero.jpg'
-import { v4 as uuidv4 } from 'uuid';
+import screen from '../src/images/hero.jpg';
 
 export const header = {
   logo: logo,
@@ -16,7 +15,8 @@ export const header = {
     1: {
       id: 1, 
       name: 'Solutions',
-      childIds: [2, 3, 4, 5, 6]
+      childIds: [2, 3, 4, 5, 6],
+      arrowDown: true
     }, 
     2: {
       id: 2,
@@ -61,7 +61,8 @@ export const header = {
     10: {
       id: 10,
       name: 'Resources', 
-      childIds: [11, 12, 13, 14, 15]
+      childIds: [11, 12, 13, 14, 15],
+      arrowDown: true
     },
     11: {
       id: 11,

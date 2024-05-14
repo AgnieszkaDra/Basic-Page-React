@@ -13,7 +13,6 @@ export const MenuTree = ({ isNavbarOpen }) => {
 
     const MenuItemText = ( {id, menuElementById} ) => {
         const menuElement = menuElementById[id];
-        const childIds = menuElement.childIds;
         
         return (
             <li
@@ -28,15 +27,17 @@ export const MenuTree = ({ isNavbarOpen }) => {
     const MenuList = ({ id, menuElementById }) => {
             const menuElement = menuElementById[id];
             const childIds = menuElement.childIds;
+            const arrowDown = menuElement?.arrowDown
         
-            
             return (
             <li
                 className="menu__listItem menu"
                 onMouseEnter={() => setShowSublist(true)}
-            
             >
-                <div>{menuElement.name} </div>
+                <div>{menuElement.name}</div>
+                {arrowDown && (
+                    <FaChevronDown style={{marginLeft: '5px'}}/>
+                )}
                 {showSublist && childIds.length > 0 && (
                 <ul 
                     className='menu__sublist' 

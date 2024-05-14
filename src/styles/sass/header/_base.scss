@@ -8,13 +8,13 @@
   grid-template-areas:
     'nav'
     'hero';
-  grid-template-rows: 20vh 80vh;
-
-  &__nav {
+  grid-template-rows: 10vh 90vh;
+    &__nav {
     grid-area: nav;
     color: $color-dark-pink;
     position: fixed;
     width: 100%;
+    height: 10vh;
     z-index: 120;
     display: grid;
     grid-template-columns: 20% 80%;
@@ -121,9 +121,11 @@
 
   &__hero {
     grid-area: hero;
+    margin-top: 10vh;
     height: 90vh;
     display: flex;
-    padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -131,8 +133,9 @@
   width: calc(120% + 30px);
   min-height: 90vh;
   position: absolute;
-  top: 10vh;
+  top: calc(10vh + 4px);
   left: calc(-20% - 30px);
+  background-color: $color-white;
   @include respond(tablet) {
     width: 100%;
     height: 100%;
@@ -140,6 +143,7 @@
     left: 0;
     top: 0;
     overflow-y: initial;
+    background-color: transparent;
   }
 }
 
@@ -149,35 +153,14 @@
     &__listItem{
       width: 100%;
       position: relative;
-      padding: 5px;
-      @include flexAbsoluteCenter();
+      margin-left: 20px;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &:hover {
         color: $color-light-pink;
       }
-      // display: grid;
-      // grid-template-areas: 
-      //   'title'
-      //   'sublist';
-      //   @include respond(tablet) {
-      // display: flex;
-     
-      // align-items: center;
-      // width: 20%;
-      //   }
-      //   &--parent{
-      //     &--title {
-      //       @include flexAbsoluteCenter();
-      //       grid-area: title;
-      //       font-size: 1rem;
-      //       font-weight: bold;
-      //       @include respond(tablet) {
-      //         height: 100%;
-      //       }
-      //     }
-      //     &>.menu__sub-sublist--block {
-      //      display: grid;
-      //     }
-      //   }
     }
     &__sublist {
       padding: 10px;
@@ -190,6 +173,7 @@
           padding: 10px;
           height: auto;
           color: $color-dark-pink;
+          align-self: flex-start;
           &:hover {
             background-color: $color-very-light-pink;
           }
@@ -219,53 +203,6 @@
         }
     }
 
-    // &__sublist { 
-    //     grid-area: sublist;
-    //     padding: 10px;
-    //     display: flex;
-    //     flex-direction: column;
-    //     &__item {
-    //        font-size: 1rem;
-    //        font-weight: bold;
-    //         padding: 10px;
-    //         color: $color-dark-pink;
-    //         &:hover {
-    //           background-color: $color-very-light-pink;
-    //         }
-    //     } 
-    //     &.hidden {
-    //       visibility: hidden;
-    //     }
-    //   max-width: 300px;
-    //   z-index: 100;
-
-    //   @include respond(tablet) {
-    //     min-height: 15vh;
-    //     min-width: 550px;
-    //     display: grid;
-    //     grid-template-columns: repeat(3, 1fr);
-    //     grid-template-rows: repeat(2, 1fr);
-    //     position: absolute;
-    //     top: 10vh;
-    //     left: calc(30% - 150px);
-    //     background-color: $color-white;
-    //     border-radius: 5px;
-    //     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-    //     -5px -5px 10px rgba(0, 0, 0, 0.3);
-
-    //     .menu__item {
-    //       width: 100%;
-
-    //       &:hover {
-    //         color: $color-light-pink;
-    //       }
-
-    //     }
-    //   }
-
-    // }
-  
-
     &__sub-sublist {
       padding: 5px;
       color: $color-black;
@@ -278,25 +215,10 @@
     &__sub-sublist--hide {
       display: none;
     }
-   
+   }
 
-
-    }
-
-
-
-
-
-
-    @include respond(max-tablet) {
+  @include respond(max-tablet) {
       .nav__menu.nav__block {
-        height: auto;
-        background-color: $color-white;
-        // padding-top: 10vh;
-        position: absolute;
-        top: 0;
-        left: 0%;
-        display: block;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -304,8 +226,9 @@
     @include flexAbsoluteCenter();
         &>li {
           margin-bottom: 10px;
-          padding: 20px;
-          display: grid;
+          padding: 20px 0 20px 0;
+          margin-left: 0;
+        
         
           .menu__item--parent {
             grid-template-areas: 
@@ -364,23 +287,4 @@
     }
   
 
-    .nav {
-      &__menu {
-        display: block;
-        display: flex;
-        flex-direction: row;
-
-
-      }
-
-      .menu {
-    
-
-        &__link {
-          color: $color-white;
-          font-size: 1.2rem;
-          text-decoration: none;
-        }
-      }
-    }
   

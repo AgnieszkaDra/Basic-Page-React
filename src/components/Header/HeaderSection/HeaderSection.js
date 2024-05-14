@@ -20,6 +20,10 @@ export const HeaderSection = (props) => {
   
   const { isScrolled } = useScroll()
 
+  const isMobile = window.innerWidth <= 900;
+  const isDesktop = window.innerWidth >= 900;
+  const eventToUse = isMobile ? '' : 'onMouseEnter';
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -38,7 +42,7 @@ export const HeaderSection = (props) => {
 
   return (
     <>
-      <div className={`${scrolled ? `header__nav scrolled ` : 'header__nav'} ${isScrolled ? `${' hidden'}` : '' }`}>
+      <div className={`${scrolled ? `header__nav scrolled ` : 'header__nav'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`}>
         <Logo className={'header__logo'} logo={logo}></Logo>
         <div className={"header__navigation"}>
           <Navigation content={menu}></Navigation>
