@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-
+import ChocolateHamburger from '../ChocolateHamburger';
 import PropTypes from 'prop-types';
 import Logo from '../Logo';
 import SelectLanguage from '../SelectLanguage';
 import Navigation from '../Navigation/Navigation';
 import { useScroll } from '../../../hooks/useScroll';
+import { NavbarContext } from '../../context';
+import Menu from '../Menu/Menu';
 
 export const HeaderSection = (props) => {
   const {
@@ -15,7 +17,7 @@ export const HeaderSection = (props) => {
     screen,
     menu,
   } = props
-
+  const { Provider: NavbarProvider } = NavbarContext;
   const [scrolled, setScrolled] = useState(false);
   
   const { isScrolled } = useScroll()
@@ -23,6 +25,12 @@ export const HeaderSection = (props) => {
   const isMobile = window.innerWidth <= 900;
   const isDesktop = window.innerWidth >= 900;
   const eventToUse = isMobile ? '' : 'onMouseEnter';
+
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,17 +50,35 @@ export const HeaderSection = (props) => {
 
   return (
     <>
-      <div className={`${scrolled ? `header__top scrolled ` : 'header__top'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`}>
+     <NavbarProvider value={{ navbarOpen, setNavbarOpen }}>
+      <div className={`${scrolled ? `header__top scrolled ` : 'header__top'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`}
+      >
         <Logo className={'header__logo'} logo={logo}></Logo>
-        <div className={"header__menu"}>
-          <Navigation content={menu}></Navigation>
+        <button onClick={handleToggle} className={'hamburger'}>
+          <ChocolateHamburger isNavbarOpen={navbarOpen} openFunc={setNavbarOpen} span={9} />
+        </button>
+        <div className={'header__menu'}>
+          <Menu isNavbarOpen={navbarOpen} navbarOpenFunc={setNavbarOpen}></Menu> 
         </div>
-        <div className={"header__other"}>
+       
+        {/* <div className={"header__menu"}>
+          <Navigation content={menu}></Navigation>
+        </div> */}
+        { !navbarOpen ?
+           <div className={"header__other"}>
+           <SelectLanguage className={'select'}></SelectLanguage>
+           <button className={'button--border'}>Log in</button>
+           <button className={'button--full'}>Start for free</button>
+         </div> : ''
+        }
+        {/* <div className={"header__other"}>
           <SelectLanguage className={'select'}></SelectLanguage>
           <button className={'button--border'}>Log in</button>
           <button className={'button--full'}>Start for free</button>
-        </div>
+        </div> */}
       </div>
+     </NavbarProvider>
+      
       <div className={"header__hero"} id="hero">
         <article className={"hero__info"}>
           <h3 className={'hero__header headline--h3'}>{headline}</h3>

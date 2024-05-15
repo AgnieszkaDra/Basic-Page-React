@@ -3,42 +3,68 @@
 .header {
   width: 100%;
   height: 100vh;
-  background: $color-dark-white;
   display: grid;
   grid-template-areas:
-    'nav'
+    'top'
     'hero';
   grid-template-rows: 10vh 90vh;
+  background: $color-dark-white;
   &__top {
-    grid-area: nav;
-    color: $color-dark-pink;
+    grid-area: top;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 120;
     padding-top: 16px;
     padding-bottom: 16px;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-    position: fixed;
-    width: 100%;
-    height: 10vh;
-    z-index: 120;
-    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: $color-dark-pink;
+    display: grid;
+    grid-template-areas:
+      'logo hamburger'
+      'menu menu'
+      'others others';
+      grid-template-rows: min-content minmax(10vh, min-content) minmax(60vh, min-content) minmax(30vh, min-content);
+      grid-template-rows: 10vh 3fr 1fr;
+    grid-template-columns: 50% 50%;
+    
+    
+    
+   
+   
  
     // display: grid;
     // grid-template-columns: 20% 80%;
     // grid-template-areas: 'logo menuItems';
 
     @include respond(max-tablet) {
+       height: 10vh;
       background-color: $color-white;
       border-bottom: 1px solid $color-dark-grey;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-      &.hidden {
-        visibility: hidden;
-      }
+      // &.hidden {
+      //   visibility: hidden;
+      // }
     }
 
     @include respond(tablet) {
+      position: fixed;
       // grid-template-areas:
       //   'logo  menuItems other';
       // grid-template-columns: 20% 50% 30%;
+      grid-template-areas:
+        'logo menu others';
+      grid-template-columns: 15% 60% 25%;
+         grid-template-rows: 10vh 60vh 30vh;
+padding-left: 40px !important;
+    padding-right: 40px !important;
+      
+ 
        &.scrolled {
         background-color: $color-white;
         border-bottom: 1px solid $color-dark-grey;
@@ -61,22 +87,31 @@
       }
   }
   &__menu {
-    grid-area: menuItems;
-    height: 100%;
-    width: calc(100% - 370px) !important;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
+    // grid-area: menuItems;
+    // height: 100%;
+    // width: calc(100% - 370px) !important;
+    // display: flex;
+    // justify-content: flex-end;
+    // align-items: center;
+    display: grid;
+    grid-area: menu;
+    // position: relative;
 
     @include respond(tablet) {
       justify-content: initial;
     }
   }
   &__other {
-  //  grid-area: other;
+  grid-area: others;
   //  display: none;
+ 
+ background-color: $color-white;
+width: 100%;
+@include flexAbsoluteCenter();
+flex-direction: column;
     @include respond(tablet){
+      margin-left: auto;
+      background-color: transparent;
       display: flex;
       position: initial;
       flex-direction: row;
@@ -92,9 +127,9 @@
     @include flexAbsoluteCenter();
     margin-right: 10px;
     width: 50px;
-    @include respond(tablet) {
-      width: 13%;
-    }
+    // @include respond(tablet) {
+    //   width: 13%;
+    // }
   }
     
   .select.custom__select select {
@@ -141,15 +176,19 @@
   // min-height: 90vh;
   padding: 1rem 2rem;
   position: absolute;
-  top: calc(10vh + 4px);
-  left: calc(-20% - 30px);
+  left: 0;
+  top: 10vh;
+  width: 100%;
+  // top: calc(10vh + 4px);
+  // left: calc(-20% - 30px);
   background-color: $color-white;
   @include respond(tablet) {
+    position: initial;
     max-width: 100%;
     height: 100%;
-    min-height: 0;
-    left: 0;
-    top: 0;
+    // min-height: 0;
+    // left: 0;
+    // top: 0;
     overflow-y: initial;
     background-color: transparent;
   }
@@ -232,13 +271,13 @@
         // max-width: calc(120% + 30px);
         max-width: 100vw;
         max-height: 100vh;
-        position: fixed;
+        // position: fixed;
         background-color: $color-white;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 999;
+    // z-index: 999;
     transition: opacity .2s ease;
     gap: 1rem;
   
@@ -270,7 +309,7 @@
   
     .hamburger {
       z-index: 120;
-      margin-right: 20px;
+      margin-left: auto;
       @include respond(tablet) {
         margin-right: 0;
       }
