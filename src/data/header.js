@@ -1,5 +1,5 @@
-import logo from '../src/images/logo.png';
-import screen from '../src/images/hero.jpg';
+import logo from '../../src/assets/images/logo.png';
+import screen from '../../src/assets/images/screen.png';
 
 export const header = {
   logo: logo,

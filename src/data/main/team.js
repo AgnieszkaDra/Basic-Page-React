@@ -1,8 +1,8 @@
-import cto from '../../src/images/cto.png';
-import ceo from '../../src/images/ceo.png';
-import cfo from '../../src/images/cfo.png';
-import twitter from '../../src/images/team-twitter.png';
-import facebook from '../../src/images/facebook.png'
+import cto from '../../../src/assets/images/cto.png';
+import ceo from '../../../src/assets/images/ceo.png';
+import cfo from '../../../src/assets/images/cfo.png';
+import twitter from '../../../src/assets/images/team-twitter.png';
+import facebook from '../../../src/assets/images/facebook.png'
 
 export const team = {
    
