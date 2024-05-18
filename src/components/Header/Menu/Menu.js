@@ -1,5 +1,6 @@
 import React from 'react'
 import MenuTree from './MenuList';
+import SelectLanguage from '../SelectLanguage';
 import { useScroll } from '../../../hooks/useScroll';
 
 export const Menu = (props) => {
@@ -14,6 +15,7 @@ export const Menu = (props) => {
 
    <nav className='nav'>
     <MenuTree isNavbarOpen={isNavbarOpen} />
+    <SelectLanguage className={'select'} isNavbarOpen={isNavbarOpen} ></SelectLanguage>
    </nav>
    
       

@@ -51,7 +51,9 @@ export const HeaderSection = (props) => {
   return (
     <>
      <NavbarProvider value={{ navbarOpen, setNavbarOpen }}>
-      <div className={`${scrolled ? `header__top scrolled ` : 'header__top'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`}
+      <div className={'header__cont'}>
+        {/* <div className={`${navbarOpen ? `header__top open ` : 'header__top'} ${scrolled ? `header__top scrolled ` : 'header__top'} ${isScrolled && isDesktop ? `${' hidden'}` : '' }`} */}
+         <div className={`${navbarOpen ? `header__top open ` : 'header__top'}`}
       >
         <Logo className={'header__logo'} logo={logo}></Logo>
         <button onClick={handleToggle} className={'hamburger'}>
@@ -59,24 +61,28 @@ export const HeaderSection = (props) => {
         </button>
         <div className={'header__menu'}>
           <Menu isNavbarOpen={navbarOpen} navbarOpenFunc={setNavbarOpen}></Menu> 
+          
+           {/* <SelectLanguage className={'select'} isNavbarOpen={navbarOpen} navbarOpenFunc={setNavbarOpen}></SelectLanguage> */}
+           {/* <button className={'button--border'}>Log in</button>
+           <button className={'button--full'}>Start for free</button> */}
         </div>
        
         {/* <div className={"header__menu"}>
           <Navigation content={menu}></Navigation>
         </div> */}
-        { !navbarOpen ?
+{/*        
            <div className={"header__other"}>
-           <SelectLanguage className={'select'}></SelectLanguage>
-           <button className={'button--border'}>Log in</button>
-           <button className={'button--full'}>Start for free</button>
-         </div> : ''
-        }
+          
+         </div>  */}
+    
         {/* <div className={"header__other"}>
           <SelectLanguage className={'select'}></SelectLanguage>
           <button className={'button--border'}>Log in</button>
           <button className={'button--full'}>Start for free</button>
         </div> */}
       </div>
+      </div>
+      
      </NavbarProvider>
       
       <div className={"header__hero"} id="hero">

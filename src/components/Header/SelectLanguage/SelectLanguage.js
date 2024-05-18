@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
-export const SelectLanguage = ({ className }) => {
+export const SelectLanguage = ({ isNavbarOpen  }) => {
+  
  const [isChevronUp, setIsChevronUp] = useState(false);
 
   const toggleChevron = () => {
@@ -11,7 +12,8 @@ export const SelectLanguage = ({ className }) => {
 
   return (
     <div
-      className={`${className ? `${className} custom__select` : 'custom__select'}`}
+ 
+      className={`${isNavbarOpen ? 'none' : 'custom__select'}`}
       onClick={toggleChevron}
     >
        <select >
