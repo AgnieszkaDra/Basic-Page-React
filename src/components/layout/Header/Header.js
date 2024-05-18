@@ -20,24 +20,24 @@ export const Header = (props) => {
 
   const { Provider: HeaderDataTeamProvider } = HeaderDataTeamContext;
   const { Provider: NavbarProvider } = NavbarContext;
-  const { isDropdownOpen, toggleDropdown, closeDropdown } = useDropdown();
+  const { isDropdownOpen, toggleDropdown } = useDropdown();
   const [ elements, setElements ] = useState(menu)
 
   return (
     <HeaderDataTeamProvider value={{ elements, setElements }}>
       <header className={className}>
         <NavbarProvider value={{ isDropdownOpen, toggleDropdown }}>
-          <div className={'header__cont'}>
-            <div className={`${isDropdownOpen ? `header__top open ` : 'header__top'}`}>
-              <Logo className={'header__logo'} logo={logo}/>
+          <nav className={'nav__container'}>
+            <div className={`${isDropdownOpen ? `nav__top open ` : 'nav__top'}`}>
+              <Logo className={'nav__logo'} logo={logo}/>
               <button onClick={toggleDropdown} className={'hamburger'}>
                 <ChocolateHamburger isDropdownOpen={isDropdownOpen} openFunc={toggleDropdown} span={9} />
               </button>
-              <div className={'header__menu'}>
+              <div className={'nav__menu'}>
                 <Menu isDropdownOpen={isDropdownOpen} navbarOpenFunc={toggleDropdown}></Menu> 
               </div>
             </div>
-          </div>
+          </nav>
         </NavbarProvider>
         <div className={"header__hero"} id="hero">
         <article className={"hero__info"}>

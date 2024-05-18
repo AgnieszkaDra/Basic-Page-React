@@ -14,11 +14,11 @@ import './styles/sass/style.css'
 const root = createRoot(document.querySelector('#root'));
 
 const App = () => (
-        <Router>
-            <Header {...header} className={'header'}/>
-            <Main {...main} className={'main'}/>
-            <Footer {...footer} className={'footer'}/>
-        </Router>
+    <Router>
+        <Header {...header} className={'header'}/>
+        <Main {...main} className={'main'}/>
+        <Footer {...footer} className={'footer'}/>
+    </Router>
 );
 
 root.render(<App/>);
