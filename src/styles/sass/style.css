@@ -16,7 +16,6 @@ section {
   width: 30%;
   padding: 12px;
   border: none;
-  background-color: rgb(36, 242, 139);
   color: rgb(134, 82, 200);
   border-radius: 5px;
   font-weight: 700;
@@ -130,17 +129,8 @@ a {
   border-radius: 50%;
 }
 
-.header {
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "top" "hero";
-  grid-template-rows: 10vh 90vh;
-  background: rgb(245, 245, 245);
-}
-
-.header__cont {
-  position: fixed;
+.nav__container {
+  grid-area: nav;
   position: fixed;
   max-width: 100vw;
   max-height: 100vh;
@@ -149,7 +139,105 @@ a {
   bottom: 0;
   left: 0;
   z-index: 999;
-  transition: opacity 0.2s ease;
+  display: grid;
+  grid-template-areas: "logo hamburger" "menu menu";
+  grid-template-rows: 10vh auto;
+  grid-template-columns: 50% 50%;
+}
+
+@media only screen and (min-width: 900px) {
+  .nav__container {
+    grid-template-areas: "logo menu";
+    grid-template-columns: 20% auto;
+    grid-template-rows: 10vh;
+    max-height: 10vh;
+  }
+}
+.nav__logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__logo img {
+  box-shadow: 4px 4px 8px rgba(219, 112, 147, 0.3);
+}
+
+.nav__top {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 120;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: rgb(228, 0, 124);
+  display: grid;
+  grid-template-areas: "logo hamburger" "menu menu";
+}
+
+@media only screen and (max-width: 899px) {
+  .nav__top {
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(70, 70, 70);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .nav__top {
+    position: fixed;
+    grid-template-areas: "logo menu";
+    grid-template-columns: 15% 80%;
+    grid-template-rows: 10vh 60vh 30vh;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  .nav__top.scrolled {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(70, 70, 70);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+.nav__menu {
+  grid-area: menu;
+  display: flex;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 900px) {
+  .nav__menu {
+    flex-direction: row;
+  }
+}
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav" "hero";
+  grid-template-rows: 10vh 90vh;
+  background: rgb(245, 245, 245);
+  color: rgb(219, 112, 147);
+}
+
+.header__nav {
+  grid-area: nav;
 }
 
 .header__top {
@@ -209,16 +297,6 @@ a {
 @media only screen and (min-width: 900px) {
   .header__logo {
     margin-left: 0;
-  }
-}
-.header__menu {
-  grid-area: menu;
-}
-
-@media only screen and (min-width: 900px) {
-  .header__menu {
-    justify-content: initial;
-    flex-direction: row;
   }
 }
 .header__other {
@@ -391,7 +469,7 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: 100vw;
+    width: 100%;
     max-height: 100vh;
     background-color: rgb(255, 255, 255);
     top: 0;
@@ -433,34 +511,22 @@ a {
     margin-right: 0;
   }
 }
+.hamburger {
+  background-color: transparent;
+  padding: 20px 20px;
+  grid-area: hamburger;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  border: none;
+}
+
 @media only screen and (min-width: 900px) {
   .hamburger {
     display: none;
   }
-  .nav__menu {
-    display: block;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    text-wrap: nowrap;
-  }
-  .nav .menu__item:not(:nth-child(3)) {
-    margin-right: 10px;
-  }
-  .nav .menu__link {
-    color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-    text-decoration: none;
-  }
 }
-.hamburger {
-  background-color: rgb(255, 228, 225);
-  border-radius: 5px;
-  padding: 10px 10px;
-  grid-area: hamburger;
-}
-
 .hamburger__icon-open, .hamburger__icon-close {
   width: 30px;
   height: 30px;

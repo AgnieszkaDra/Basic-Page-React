@@ -7,7 +7,6 @@ import Menu from '../../layout/Menu';
 import { useDropdown } from '../../../hooks/useDropdown';
 import PropTypes from 'prop-types';
 
-
 export const Header = (props) => {
   const {
     className,
@@ -27,8 +26,8 @@ export const Header = (props) => {
     <HeaderDataTeamProvider value={{ elements, setElements }}>
       <header className={className}>
         <NavbarProvider value={{ isDropdownOpen, toggleDropdown }}>
-          <nav className={'nav__container'}>
-            <div className={`${isDropdownOpen ? `nav__top open ` : 'nav__top'}`}>
+          <nav className={'header__nav'}>
+            <div className={`${isDropdownOpen ? `nav__container open ` : 'nav__container'}`}>
               <Logo className={'nav__logo'} logo={logo}/>
               <button onClick={toggleDropdown} className={'hamburger'}>
                 <ChocolateHamburger isDropdownOpen={isDropdownOpen} openFunc={toggleDropdown} span={9} />
@@ -40,14 +39,14 @@ export const Header = (props) => {
           </nav>
         </NavbarProvider>
         <div className={"header__hero"} id="hero">
-        <article className={"hero__info"}>
-          <h3 className={'hero__header headline--h3'}>{headline}</h3>
-          <p className={'hero__sub-header'}>{description}</p>
-          <button className={'button--full'}>Order a website</button>
-        </article>
-        <div className={"hero__photo-container"}>
-          <img className={"hero__photo"} src={screen} alt="screen" width="350px"></img>
-        </div>
+          <article className={"hero__info"}>
+            <h3 className={'hero__header headline--h3'}>{headline}</h3>
+            <p className={'hero__sub-header'}>{description}</p>
+            <button className={'button--full'}>Order a website</button>
+          </article>
+          <div className={"hero__photo-container"}>
+            <img className={"hero__photo"} src={screen} alt="screen" width="350px"></img>
+          </div>
         </div>
       </header>
     </HeaderDataTeamProvider>

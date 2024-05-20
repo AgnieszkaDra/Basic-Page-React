@@ -1,9 +1,17 @@
 @import '../abstracts/';
 .hamburger {
-    background-color: $color-very-light-pink;
-    border-radius: 5px;
-    padding: 10px 10px;
+    background-color: transparent;
+    padding: 20px 20px;
     grid-area: hamburger;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    border: none;
+
+    @include respond(tablet){
+        display: none;
+    }
 
     &__icon-open,
     &__icon-close {
@@ -52,6 +60,8 @@
                }
         }
     }
+
+
 }
 
   

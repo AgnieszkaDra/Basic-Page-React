@@ -13,10 +13,10 @@ export const Menu = (props) => {
     <>
     
 
-   <div className='nav'>
+   
     <MenuTree isDropdownOpen={isDropdownOpen} />
     <SelectLanguage className={'select'} isDropdownOpen={isDropdownOpen} ></SelectLanguage>
-   </div>
+ 
    
       
   

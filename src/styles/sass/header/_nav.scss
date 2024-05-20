@@ -1,7 +1,9 @@
+@import '../abstracts/';
+
 .nav {
 
- &__cont {
-    position: fixed;
+ &__container {
+    grid-area: nav;
     position: fixed;
     max-width: 100vw;
     max-height: 100vh;
@@ -10,26 +12,31 @@
     bottom: 0;
     left: 0;
     z-index: 999;
-    transition: opacity .2s ease;
+    display: grid;
+    grid-template-areas: 
+    "logo hamburger"
+    "menu menu";
+    grid-template-rows: 10vh auto;
+    grid-template-columns: 50% 50%;
+    @include respond(tablet) {
+      grid-template-areas: 
+        "logo menu";
+      grid-template-columns: 20% auto;
+      grid-template-rows: 10vh;
+      max-height: 10vh;
+    }
   }
 
   &__logo {
     grid-area: logo;
- 
-    z-index: 100;
-    margin-left: 10px;
     @include flexAbsoluteCenter();
-
     img {
       box-shadow: 4px 4px 8px rgba(219,112,147, 0.3);
     }
-    @include respond(tablet) {
-      margin-left: 0;
-    }
-}
+  }
 
   &__top {
-    grid-area: top;
+  
     width: 100%;
     position: absolute;
     top: 0;
@@ -73,12 +80,31 @@ padding-left: 40px !important;
       }
     }
   }
+  // &__menu {
+  //   grid-area: menu;
+  //   width: 100%;
+  //   height: 100%;
+  //         display: flex;
+  //         flex-direction: row;
+  //         text-wrap: nowrap;
+  //   @include respond(tablet) {
+  //     justify-content: initial;
+  //     flex-direction: row;
+  //   }
+  // }
   &__menu {
     grid-area: menu;
+    // max-height: 100vh;
+    // position: relative;
+    display: flex;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: scroll;
+    flex-direction: column;
     @include respond(tablet) {
-      justify-content: initial;
       flex-direction: row;
-    }
+    } 
   }
+ 
 }
    
