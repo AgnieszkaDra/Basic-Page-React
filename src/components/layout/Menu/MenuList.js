@@ -100,8 +100,10 @@ export const MenuTree = ({ isDropdownOpen }) => {
         );
     }
 
+   
+
   return (
-    <ul className={`nav__menu menu ${isDropdownOpen ? 'nav__hide' : 'nav__block'}`}>
+    <ul className={`menu`}>
       {menuIds.map(id => (
         <MenuList
           key={id}

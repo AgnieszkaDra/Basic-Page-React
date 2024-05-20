@@ -171,7 +171,7 @@ flex-direction: column;
     @include flexAbsoluteCenter();
     margin-right: 10px;
     width: 50px;
-   
+   z-index: 150;
     // @include respond(tablet) {
     //   width: 13%;
     // }
