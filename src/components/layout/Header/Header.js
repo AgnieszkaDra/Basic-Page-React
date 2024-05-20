@@ -5,7 +5,6 @@ import Logo from '../../ui/Logo';
 import ChocolateHamburger from '../../ui/ChocolateHamburger';
 import Menu from '../../layout/Menu';
 import { useDropdown } from '../../../hooks/useDropdown';
-import { useMobileNav } from '../../../hooks/useMobileNav';
 import PropTypes from 'prop-types';
 
 export const Header = (props) => {
@@ -21,10 +20,7 @@ export const Header = (props) => {
   const { Provider: HeaderDataTeamProvider } = HeaderDataTeamContext;
   const { Provider: NavbarProvider } = NavbarContext;
   const { isDropdownOpen, toggleDropdown } = useDropdown();
-  const { isMobileNavOpen, toggleMobileNav } = useMobileNav();
   const [ elements, setElements ] = useState(menu)
-
-
 
   return (
     <HeaderDataTeamProvider value={{ elements, setElements }}>
