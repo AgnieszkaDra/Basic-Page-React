@@ -37,7 +37,6 @@ export const Header = (props) => {
               </div>
             </div>
           </nav>
-          
         </NavbarProvider>
         <div className={"header__hero"} id="hero">
           <article className={"hero__info"}>

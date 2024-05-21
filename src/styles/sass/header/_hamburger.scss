@@ -8,11 +8,10 @@
     align-items: center;
     width: 100%;
     border: none;
-
+    z-index: 150;
     @include respond(tablet){
         display: none;
     }
-
     &__icon-open,
     &__icon-close {
         width: 30px;
@@ -30,7 +29,6 @@
             padding: 2px 2px;
         }
     }
-
     &__icon-open {
         div {
             span {
@@ -42,7 +40,6 @@
             }
         }
     }
-
     &__icon-close {
         transform: rotate(180deg);
         cursor: pointer;
@@ -60,8 +57,6 @@
                }
         }
     }
-
-
 }
 
   

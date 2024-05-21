@@ -18,8 +18,6 @@
     "menu menu";
     grid-template-rows: 10vh 90vh;
     grid-template-columns: 50% 50%;
-
- 
     @include respond(tablet) {
       grid-template-areas: 
         "logo menu";
@@ -40,65 +38,150 @@
 
   &__menu {
     grid-area: menu;
-    z-index: 100;
-    transition: opacity .2s ease;
-    @include respond(tablet){
-    flex-direction: row;
-    }
+    display: flex;
   }
 }
 
 .menu {
   display: flex;
-        justify-content: center;
-        flex-direction: column;
-       
-        width: 70%;
-       background-color: $color-white;
-       transition: opacity .2s ease;
-        gap: 1rem;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  background-color: $color-white;
+  color: $color-dark-pink;
+  transition: opacity .2s ease;
+  @include respond(tablet){
+    flex-direction: row; 
+    background-color: transparent;
   }
-   
+  &__listItem {
+    width: 100%;
+    position: relative;
+    margin-left: 20px;
+    margin-right: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      color: $color-light-pink;
+    }
+  }
+  &__sublist {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+      &__item {
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 10px;
+        height: auto;
+        color: $color-dark-pink;
+        align-self: flex-start;
+        &:hover {
+          background-color: $color-very-light-pink;
+        }
+        &--text {
+          color: $color-dark-pink;
+          margin-top: 5px;
+          font-size: 0.8rem;
+        }
+      } 
+      @include respond(tablet) {
+        min-height: 15vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        position: absolute;
+        top: 10vh;
+        left: calc(30% - 150px);
+        background-color: $color-white;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(0, 0, 0, 0.3);
+         &__item {
+            &:hover {
+              color: $color-light-pink;
+            }
+          }
+      }
+  }
+
+  &__sub-sublist {
+    padding: 5px;
+    color: $color-black;
+  }
+
+  &__sublist--hide {
+    display: none;
+  }
+
+  &__sub-sublist--hide {
+    display: none;
+  }
+}
 
 @include respond(max-tablet) {
   .nav__menu.nav__block {
     display: flex;
     justify-content: center;
     flex-direction: column;
-   width: 100%;
-    height: 90vh;
+    width: 100%;
+    height: 100vh;
+    margin-top: -10vh;
+    padding-top: 10vh;
     background-color: $color-white;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 999;
+    z-index: 90;
     transition: opacity .2s ease;
     gap: 1rem;
     overflow: scroll;
-
-@include flexAbsoluteCenter();
-    &>li {
-      margin-bottom: 10px;
-      padding: 20px 0 20px 0;
-      margin-left: 0;
-    
-    
-      .menu__item--parent {
-        grid-template-areas: 
-        'arrow'
-        'sublist';
-svg {
-        grid-area: arrow;
-      }
-      .menu__sublist {
-        grid-area: sublist;
-      }
-      }
-    }
+    @include flexAbsoluteCenter();
   }
 }
 
 .nav__menu.nav__hide {
   display:none;
+}
+
+.custom__select {
+  @include flexAbsoluteCenter();
+  margin-right: 10px;
+}
+
+.none {
+  display: none;
+}
+  
+.select.custom__select select {
+  appearance: none; 
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  width: 100%;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.select.custom__select select:focus {
+  appearance: none; 
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  width: 100%;
+  padding: 8px;
+  border: 1px solid $color-dark-pink;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-chevron {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }

@@ -2,7 +2,7 @@ import React, { useContext, useState, useCallback } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import { HeaderDataTeamContext } from '../../../context';
 
-export const MenuTree = ({ isDropdownOpen }) => {
+export const MenuTree = () => {
     const { elements } = useContext(HeaderDataTeamContext);
     const [menu, setMenu] = useState(elements);
     const root = elements[0];
@@ -39,7 +39,7 @@ export const MenuTree = ({ isDropdownOpen }) => {
         return (
          
                 <li
-                className="menu__listItem menu"
+                className="menu__listItem"
                 onClick={() => handleSublist(id)} 
             >
                 <div>{menuElement.name}</div>
@@ -100,9 +100,7 @@ export const MenuTree = ({ isDropdownOpen }) => {
         );
     }
 
-   
-
-  return (
+return (
     <ul className={`menu`}>
       {menuIds.map(id => (
         <MenuList

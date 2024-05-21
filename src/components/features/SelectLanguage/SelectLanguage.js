@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
-export const SelectLanguage = ({ isDropdownOpen  }) => {
+export const SelectLanguage = () => {
   
  const [isChevronUp, setIsChevronUp] = useState(false);
 
@@ -12,11 +12,10 @@ export const SelectLanguage = ({ isDropdownOpen  }) => {
 
   return (
     <div
- 
-      className={`${isDropdownOpen ? 'none' : 'custom__select'}`}
+      className={'custom__select'}
       onClick={toggleChevron}
     >
-       <select >
+      <select >
         <option value="">PL</option>
         <option value="option1">EN</option>
       </select>
