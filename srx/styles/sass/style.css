@@ -384,7 +384,6 @@ a {
 }
 
 .hamburger {
-  background-color: transparent;
   padding: 20px 20px;
   grid-area: hamburger;
   display: flex;
@@ -403,7 +402,9 @@ a {
 .hamburger__icon-open, .hamburger__icon-close {
   width: 30px;
   height: 30px;
+  background-color: rgb(255, 255, 255);
   transition: 0.1s;
+  border: none;
   cursor: pointer;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -417,6 +418,11 @@ a {
   width: 100%;
   height: 100%;
   padding: 2px 2px;
+}
+
+.hamburger__icon-open div {
+  width: 100%;
+  height: 100%;
 }
 
 .hamburger__icon-open div span {

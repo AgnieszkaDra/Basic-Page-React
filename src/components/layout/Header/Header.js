@@ -29,9 +29,12 @@ export const Header = (props) => {
           <nav className={'header__nav'}>
             <div className={`${isDropdownOpen ? `nav__container open ` : 'nav__container'}`}>
               <Logo className={'nav__logo'} logo={logo}/>
-              <button onClick={toggleDropdown} className={'hamburger'}>
-                <ChocolateHamburger isDropdownOpen={isDropdownOpen} openFunc={toggleDropdown} span={9} />
-              </button>
+              <ChocolateHamburger 
+                className={'hamburger__icon'}
+                openFunc={toggleDropdown} 
+                isDropdownOpen={isDropdownOpen} 
+                span={9} 
+              />
               <div className={`nav__menu ${isDropdownOpen ? 'nav__hide' : 'nav__block'}`}>
                 <Menu isDropdownOpen={isDropdownOpen} navbarOpenFunc={toggleDropdown}></Menu> 
               </div>

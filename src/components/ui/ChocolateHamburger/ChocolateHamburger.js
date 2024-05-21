@@ -1,22 +1,15 @@
 import React from 'react';
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const ChocolateHamburger = (props) => {
   
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   const {
-    open, 
+    isDropdownOpen, 
     openFunc,
     span
   } = props
 
-  const spanElement = (spanElement) => {
+  const renderSpanElement = (spanElement) => {
     const numberOfElements = spanElement;
     const elements = [];
 
@@ -31,8 +24,10 @@ export const ChocolateHamburger = (props) => {
   }
 
   return (
-    <div className={`hamburger__icon${isOpen ? '-close' : '-open'}`} onClick={toggleMenu}>
-      {spanElement(span)}
+    <div className={'hamburger'} onClick={openFunc} >
+      <button className={`hamburger__icon${isDropdownOpen ? '-open' : '-close'}`} >
+        {renderSpanElement(span)}
+      </button>
     </div>
   )
   
