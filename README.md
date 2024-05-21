@@ -8,6 +8,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#features">Features</a></li>
       </ul>
     </li>
     <li>
@@ -27,6 +28,9 @@
 ## Technology Stack
 
 [![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black)] 
+
+## Features
+- Original dropdown menu.
 
 ## Getting Started
 
