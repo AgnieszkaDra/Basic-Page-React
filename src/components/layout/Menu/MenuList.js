@@ -8,8 +8,6 @@ export const MenuTree = () => {
     const root = elements[0];
     const menuIds = root.childIds;
     const [showSublist, setShowSublist] = useState(false);
-    const isMobile = window.innerWidth <= 900;
-    const eventToUse = isMobile ? 'onClick' : 'onMouseEnter';
     const [showMenuTextItem, setShowMenuTextItem] = useState(false);
 
     const MenuItemText = ( {id, menuElementById} ) => {
@@ -37,15 +35,16 @@ export const MenuTree = () => {
         );
 
         return (
-         
-                <li
-                className="menu__listItem"
+            <li
+                className={"menu__listItem"}
                 onClick={() => handleSublist(id)} 
             >
-                <div>{menuElement.name}</div>
-                {arrowDown && (
+                <div className={"menu__listItem-name"}>
+                    {menuElement.name}
+                     {arrowDown && (
                     <FaChevronDown style={{marginLeft: '5px'}}/>
                 )}
+                </div>
                 {showSublist === id  && childIds.length > 0 && (
                 <ul 
                     className='menu__sublist' 
@@ -83,8 +82,7 @@ export const MenuTree = () => {
             {showMenuTextItem === id && childIds.length > 0 && (
                 <ul 
                     className='menu__text' 
-                    style={{ zIndex: 200 }}
-                    onMouseLeave={(event) => handleText(id, event)}
+                    onClick={(event) => handleText(id, event)}
                 >
                     {childIds.map(childId => (
                     <MenuItemText

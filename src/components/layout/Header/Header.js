@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HeaderDataTeamContext } from '../../../context';
 import { NavbarContext } from '../../../context';
 import Logo from '../../ui/Logo';
 import ChocolateHamburger from '../../ui/ChocolateHamburger';
 import Menu from '../../layout/Menu';
 import { useDropdown } from '../../../hooks/useDropdown';
+
 import PropTypes from 'prop-types';
 
 export const Header = (props) => {
@@ -21,7 +22,7 @@ export const Header = (props) => {
   const { Provider: NavbarProvider } = NavbarContext;
   const { isDropdownOpen, toggleDropdown } = useDropdown();
   const [ elements, setElements ] = useState(menu)
-
+  
   return (
     <HeaderDataTeamProvider value={{ elements, setElements }}>
       <header className={className}>
