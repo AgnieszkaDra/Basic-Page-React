@@ -39,6 +39,7 @@
   &__menu {
     grid-area: menu;
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -46,10 +47,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 70%;
   background-color: $color-white;
   color: $color-dark-pink;
   transition: opacity .2s ease;
+  text-wrap: nowrap;
   @include respond(tablet){
     flex-direction: row; 
     background-color: transparent;
@@ -148,40 +149,81 @@
   display:none;
 }
 
-.custom__select {
-  @include flexAbsoluteCenter();
-  margin-right: 10px;
-}
-
 .none {
   display: none;
 }
-  
-.select.custom__select select {
-  appearance: none; 
-  -webkit-appearance: none; 
-  -moz-appearance: none; 
-  width: 100%;
-  padding: 8px;
+
+.select {
+  height: 100%;
+  @include flexAbsoluteCenter();
   border: none;
-  cursor: pointer;
+  &__container {
+    margin-left: auto;
+    margin-right: 20px;
+    padding: 10px;
+  }
 }
 
-.select.custom__select select:focus {
+.custom-select {
+  display: inline-block;
+  border:none;
+  width: 50px;
+  height: 100%;
   appearance: none; 
-  -webkit-appearance: none; 
-  -moz-appearance: none; 
-  width: 100%;
-  padding: 8px;
-  border: 1px solid $color-dark-pink;
-  border-radius: 4px;
-  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px 20px 40px;
+    border: none;
+  }
+  &-arrow {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    pointer-events: none; 
+  }  
+  &:focus {
+    outline: none;
+  }
 }
 
-.custom-chevron {
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
+
+
+
+
+// .custom__select {
+//   @include flexAbsoluteCenter();
+//   margin-right: 10px;
+// }
+
+// .select.custom__select select {
+//   appearance: none; 
+//   -webkit-appearance: none; 
+//   -moz-appearance: none; 
+//   width: 100%;
+//   padding: 8px;
+//   border: none;
+//   cursor: pointer;
+// }
+
+// .select.custom__select select:focus {
+//   appearance: none; 
+//   -webkit-appearance: none; 
+//   -moz-appearance: none; 
+//   width: 100%;
+//   padding: 8px;
+//   border: 1px solid $color-dark-pink;
+//   border-radius: 4px;
+//   cursor: pointer;
+// }
+
+// .custom-chevron {
+//   position: absolute;
+//   top: 50%;
+//   right: 0px;
+//   transform: translateY(-50%);
+//   pointer-events: none;
+// }

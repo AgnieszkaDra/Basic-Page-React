@@ -12,16 +12,19 @@ export const SelectLanguage = () => {
 
   return (
     <div
-      className={'custom__select'}
+      className={'custom-select-wrapper'}
       onClick={toggleChevron}
     >
-      <select >
+      <select className={'custom-select'}>
         <option value="">PL</option>
         <option value="option1">EN</option>
       </select>
-      <div className="custom-chevron">
+      <div className="custom-select-arrow">
         {isChevronUp ? <FaChevronUp /> : <FaChevronDown />} 
-      </div>
+      </div> 
+     
+        {/* {isChevronUp ? <FaChevronUp /> : <FaChevronDown />} */}
+    
     </div>
   );
 };
